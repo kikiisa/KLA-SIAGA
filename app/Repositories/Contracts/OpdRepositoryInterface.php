@@ -4,6 +4,7 @@ namespace App\Repositories\Contracts;
 
 use App\Models\Opd;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
 interface OpdRepositoryInterface
@@ -26,6 +27,13 @@ interface OpdRepositoryInterface
      * Paginate OPDs with their user count.
      */
     public function paginateWithUserCount(int $perPage = 10): LengthAwarePaginator;
+
+    /**
+     * Get a query builder for OPDs with their user count.
+     *
+     * @return Builder<Opd>
+     */
+    public function queryWithUserCount(): Builder;
 
     /**
      * Create a new OPD.

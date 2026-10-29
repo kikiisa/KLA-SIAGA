@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\DataTables\UserDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use App\Services\UserManagementService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -19,9 +21,15 @@ class UserController extends Controller
      */
     public function index(): View
     {
-        return view('admin.users.index', [
-            'users' => $this->userManagementService->paginate(),
-        ]);
+        return view('admin.users.index');
+    }
+
+    /**
+     * Return the users data for DataTables.
+     */
+    public function data(UserDataTable $dataTable): JsonResponse
+    {
+        return $dataTable->json();
     }
 
     /**

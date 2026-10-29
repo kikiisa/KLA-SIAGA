@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\Opd;
 use App\Repositories\Contracts\OpdRepositoryInterface;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
 class EloquentOpdRepository implements OpdRepositoryInterface
@@ -43,6 +44,18 @@ class EloquentOpdRepository implements OpdRepositoryInterface
             ->withCount('users')
             ->orderBy('nama_opd')
             ->paginate($perPage);
+    }
+
+    /**
+     * Get a query builder for OPDs with their user count.
+     *
+     * @return Builder<Opd>
+     */
+    public function queryWithUserCount(): Builder
+    {
+        return Opd::query()
+            ->withCount('users')
+            ->select('opds.*');
     }
 
     /**

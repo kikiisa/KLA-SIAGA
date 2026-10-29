@@ -4,6 +4,7 @@ namespace App\Repositories\Contracts;
 
 use App\Models\User;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Builder;
 
 interface UserRepositoryInterface
 {
@@ -21,6 +22,13 @@ interface UserRepositoryInterface
      * Paginate users with their roles and OPD.
      */
     public function paginateWithRoles(int $perPage = 10): LengthAwarePaginator;
+
+    /**
+     * Get a query builder for users with their roles and OPD.
+     *
+     * @return Builder<User>
+     */
+    public function queryWithRoles(): Builder;
 
     /**
      * Create a new user.

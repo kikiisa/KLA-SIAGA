@@ -1,5 +1,9 @@
 import 'flowbite';
+import DataTable from 'datatables.net-dt';
+import Swal from 'sweetalert2';
 import Chart from 'chart.js/auto';
+
+DataTable.ext.errMode = 'none';
 
 Chart.defaults.font.family = "'Instrument Sans', ui-sans-serif, system-ui, sans-serif";
 Chart.defaults.color = '#64748b';
@@ -180,4 +184,93 @@ document.addEventListener('DOMContentLoaded', () => {
             builder(canvas);
         }
     });
+
+    document.querySelectorAll('table[data-datatable]').forEach((table) => {
+        const headers = Array.from(table.querySelectorAll('thead th'));
+
+        const columns = headers.map((header, index) => ({
+            data: header.dataset.column,
+            orderable: header.dataset.orderable !== 'false',
+            searchable: header.dataset.searchable !== 'false',
+            className: header.dataset.className ?? '',
+            createdCell: (cell) => {
+                cell.dataset.label = headers[index].textContent.trim();
+            },
+        }));
+
+        const orderColumn = Number.parseInt(table.dataset.orderColumn ?? '0', 10);
+        const orderDirection = table.dataset.orderDirection === 'desc' ? 'desc' : 'asc';
+
+        new DataTable(table, {
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: table.dataset.url,
+                type: 'GET',
+            },
+            columns,
+            order: [[orderColumn, orderDirection]],
+            pageLength: 10,
+            language: {
+                processing: 'Memuat data...',
+                search: 'Cari:',
+                searchPlaceholder: 'Cari data...',
+                lengthMenu: 'Tampilkan _MENU_ data',
+                info: 'Menampilkan _START_–_END_ dari _TOTAL_ data',
+                infoEmpty: 'Tidak ada data',
+                infoFiltered: '(difilter dari _MAX_ total data)',
+                zeroRecords: 'Data tidak ditemukan',
+                emptyTable: 'Belum ada data',
+                paginate: {
+                    first: 'Awal',
+                    previous: 'Sebelumnya',
+                    next: 'Berikutnya',
+                    last: 'Akhir',
+                },
+            },
+        });
+    });
+
+    document.addEventListener('submit', (event) => {
+        const form = event.target.closest('form[data-confirm]');
+
+        if (! form || form.dataset.confirmed === 'true') {
+            return;
+        }
+
+        event.preventDefault();
+
+        Swal.fire({
+            title: form.dataset.confirmTitle ?? 'Konfirmasi',
+            text: form.dataset.confirm,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: form.dataset.confirmButton ?? 'Ya, lanjutkan',
+            cancelButtonText: 'Batal',
+            confirmButtonColor: '#047857',
+            cancelButtonColor: '#64748b',
+            reverseButtons: true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.dataset.confirmed = 'true';
+                form.requestSubmit();
+            }
+        });
+    });
+
+    const showSweetAlertNotifications = async () => {
+        const notifications = document.querySelectorAll('[data-sweet-alert]');
+
+        for (const notification of notifications) {
+            await Swal.fire({
+                icon: notification.dataset.icon ?? 'info',
+                title: notification.dataset.title ?? 'Informasi',
+                text: notification.dataset.text ?? '',
+                confirmButtonText: 'Tutup',
+                confirmButtonColor: '#047857',
+            });
+        }
+    };
+
+    showSweetAlertNotifications();
 });

@@ -28,6 +28,9 @@ Route::middleware('auth')
     ->prefix('admin')
     ->name('admin.')
     ->group(function (): void {
+        Route::get('opds/data', [OpdController::class, 'data'])
+            ->middleware('permission:opd.view')
+            ->name('opds.data');
         Route::get('opds', [OpdController::class, 'index'])
             ->middleware('permission:opd.view')
             ->name('opds.index');
@@ -52,6 +55,9 @@ Route::middleware(['auth', 'permission:user.view'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function (): void {
+        Route::get('users/data', [UserController::class, 'data'])
+            ->middleware('permission:user.view')
+            ->name('users.data');
         Route::resource('users', UserController::class)->except(['show']);
     });
 

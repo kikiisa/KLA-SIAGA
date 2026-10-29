@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\User;
 use App\Repositories\Contracts\UserRepositoryInterface;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Builder;
 
 class EloquentUserRepository implements UserRepositoryInterface
 {
@@ -37,6 +38,18 @@ class EloquentUserRepository implements UserRepositoryInterface
             ->with(['opd', 'roles'])
             ->orderBy('name')
             ->paginate($perPage);
+    }
+
+    /**
+     * Get a query builder for users with their roles and OPD.
+     *
+     * @return Builder<User>
+     */
+    public function queryWithRoles(): Builder
+    {
+        return User::query()
+            ->with(['opd', 'roles'])
+            ->select('users.*');
     }
 
     /**

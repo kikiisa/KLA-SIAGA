@@ -43,39 +43,45 @@
         Menu administrasi
     </p>
 
-    <nav class="flex-1 space-y-1 overflow-y-auto px-3">
-        @foreach ($navItems as $item)
-            @php
-                $isVisible = ! isset($item['permission']) || $can($item['permission']);
-                $isActive = isset($item['active']) && request()->routeIs($item['active']);
-            @endphp
+    <div class="relative min-h-0 flex-1">
+        <div class="pointer-events-none absolute inset-x-0 top-0 z-10 h-5 bg-gradient-to-b from-emerald-950 to-transparent"></div>
 
-            @if ($isVisible)
-                <a
-                    href="{{ isset($item['route']) ? route($item['route']) : '#' }}"
-                    @class([
-                        'group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition',
-                        'bg-white/10 text-white shadow-sm ring-1 ring-inset ring-white/10' => $isActive,
-                        'text-emerald-100/65 hover:bg-white/5 hover:text-white' => ! $isActive,
-                    ])
-                >
-                    <span @class([
-                        'grid h-8 w-8 shrink-0 place-items-center rounded-lg transition',
-                        'bg-emerald-400/15 text-emerald-300' => $isActive,
-                        'text-emerald-100/60 group-hover:text-emerald-200' => ! $isActive,
-                    ])>
-                        <x-icon :name="$item['icon']" :size="18" />
-                    </span>
-                    <span class="flex-1">{{ $item['label'] }}</span>
-                    @isset($item['badge'])
-                        <span class="rounded-full bg-emerald-400/15 px-2 py-0.5 text-[11px] font-semibold text-emerald-200">
-                            {{ $item['badge'] }}
+        <nav class="sidebar-scroll h-full space-y-1 overflow-y-auto overscroll-contain px-3 py-1">
+            @foreach ($navItems as $item)
+                @php
+                    $isVisible = ! isset($item['permission']) || $can($item['permission']);
+                    $isActive = isset($item['active']) && request()->routeIs($item['active']);
+                @endphp
+
+                @if ($isVisible)
+                    <a
+                        href="{{ isset($item['route']) ? route($item['route']) : '#' }}"
+                        @class([
+                            'group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition',
+                            'bg-white/10 text-white shadow-sm ring-1 ring-inset ring-white/10' => $isActive,
+                            'text-emerald-100/65 hover:bg-white/5 hover:text-white' => ! $isActive,
+                        ])
+                    >
+                        <span @class([
+                            'grid h-8 w-8 shrink-0 place-items-center rounded-lg transition',
+                            'bg-emerald-400/15 text-emerald-300' => $isActive,
+                            'text-emerald-100/60 group-hover:text-emerald-200' => ! $isActive,
+                        ])>
+                            <x-icon :name="$item['icon']" :size="18" />
                         </span>
-                    @endisset
-                </a>
-            @endif
-        @endforeach
-    </nav>
+                        <span class="flex-1">{{ $item['label'] }}</span>
+                        @isset($item['badge'])
+                            <span class="rounded-full bg-emerald-400/15 px-2 py-0.5 text-[11px] font-semibold text-emerald-200">
+                                {{ $item['badge'] }}
+                            </span>
+                        @endisset
+                    </a>
+                @endif
+            @endforeach
+        </nav>
+
+        <div class="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-5 bg-gradient-to-t from-emerald-950 to-transparent"></div>
+    </div>
 
     <div class="space-y-3 px-3 pb-4 pt-4">
         <div class="rounded-2xl border border-white/10 bg-white/5 p-4">

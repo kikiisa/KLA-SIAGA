@@ -42,18 +42,103 @@ class OpdManagementTest extends TestCase
 
     public function test_admin_can_view_opd_list(): void
     {
+        $response = $this->actingAs($this->admin)->get(route('admin.opds.index'));
+
+        $response->assertOk()
+            ->assertSee('Manajemen OPD')
+            ->assertSee('data-datatable', false)
+            ->assertSee(route('admin.opds.data'), false);
+    }
+
+    public function test_admin_can_fetch_opd_datatable_data(): void
+    {
         $opd = Opd::factory()->create([
             'kode_opd' => '1.01.01',
             'nama_opd' => 'Dinas Pendidikan',
             'singkatan' => 'Disdik',
         ]);
 
-        $response = $this->actingAs($this->admin)->get(route('admin.opds.index'));
+        $response = $this->actingAs($this->admin)->getJson(route('admin.opds.data'));
 
         $response->assertOk()
-            ->assertSee('Manajemen OPD')
-            ->assertSee($opd->nama_opd)
-            ->assertSee($opd->kode_opd);
+            ->assertJsonCount(1, 'data')
+            ->assertJsonPath('data.0.kode_opd', '1.01.01');
+
+        $this->assertStringContainsString($opd->nama_opd, $response->json('data.0.nama_opd'));
+    }
+
+    public function test_admin_can_fetch_user_datatable_data(): void
+    {
+        $opd = Opd::factory()->create(['nama_opd' => 'Dinas Pendidikan']);
+
+        $user = User::factory()->create([
+            'name' => 'Operator Pendidikan',
+            'email' => 'operator@contoh.go.id',
+            'opd_id' => $opd->id,
+        ]);
+        $user->assignRole('operator_opd');
+
+        $response = $this->actingAs($this->admin)->getJson(route('admin.users.data'));
+
+        $response->assertOk();
+
+        $row = collect($response->json('data'))->firstWhere('email', 'operator@contoh.go.id');
+
+        $this->assertNotNull($row);
+        $this->assertStringContainsString($user->name, $row['name']);
+        $this->assertStringContainsString('Operator OPD', $row['roles_label']);
+    }
+
+    public function test_opd_datatable_search_does_not_return_an_error(): void
+    {
+        Opd::factory()->create([
+            'kode_opd' => '1.01.01',
+            'nama_opd' => 'Dinas Pendidikan',
+        ]);
+        Opd::factory()->create(['nama_opd' => 'Dinas Kesehatan']);
+
+        $response = $this->actingAs($this->admin)->getJson(route('admin.opds.data', $this->dataTableQuery([
+            ['data' => 'nama_opd', 'name' => 'nama_opd', 'searchable' => 'true', 'orderable' => 'true'],
+            ['data' => 'kode_opd', 'name' => 'kode_opd', 'searchable' => 'true', 'orderable' => 'true'],
+            ['data' => 'kontak', 'name' => 'kontak', 'searchable' => 'true', 'orderable' => 'false'],
+            ['data' => 'users_count', 'name' => 'users_count', 'searchable' => 'false', 'orderable' => 'true'],
+            ['data' => 'status_label', 'name' => 'status_label', 'searchable' => 'true', 'orderable' => 'false'],
+            ['data' => 'action', 'name' => 'action', 'searchable' => 'false', 'orderable' => 'false'],
+        ], 'Pendidikan')));
+
+        $response->assertOk()->assertJsonCount(1, 'data');
+
+        $this->assertArrayNotHasKey('error', $response->json());
+        $this->assertStringContainsString('Dinas Pendidikan', $response->json('data.0.nama_opd'));
+    }
+
+    public function test_user_datatable_search_does_not_return_an_error(): void
+    {
+        $opd = Opd::factory()->create(['nama_opd' => 'Dinas Pendidikan']);
+
+        $user = User::factory()->create([
+            'name' => 'Operator Pendidikan',
+            'email' => 'operator@contoh.go.id',
+            'opd_id' => $opd->id,
+        ]);
+        $user->assignRole('operator_opd');
+
+        $response = $this->actingAs($this->admin)->getJson(route('admin.users.data', $this->dataTableQuery([
+            ['data' => 'name', 'name' => 'name', 'searchable' => 'true', 'orderable' => 'true'],
+            ['data' => 'email', 'name' => 'email', 'searchable' => 'true', 'orderable' => 'true'],
+            ['data' => 'opd_label', 'name' => 'opd_label', 'searchable' => 'true', 'orderable' => 'false'],
+            ['data' => 'roles_label', 'name' => 'roles_label', 'searchable' => 'true', 'orderable' => 'false'],
+            ['data' => 'status_label', 'name' => 'status_label', 'searchable' => 'true', 'orderable' => 'false'],
+            ['data' => 'action', 'name' => 'action', 'searchable' => 'false', 'orderable' => 'false'],
+        ], 'Operator')));
+
+        $response->assertOk();
+
+        $row = collect($response->json('data'))->firstWhere('email', 'operator@contoh.go.id');
+
+        $this->assertArrayNotHasKey('error', $response->json());
+        $this->assertNotNull($row);
+        $this->assertStringContainsString($user->name, $row['name']);
     }
 
     public function test_admin_can_create_opd(): void
@@ -78,6 +163,22 @@ class OpdManagementTest extends TestCase
             'singkatan' => 'Dishub',
             'is_active' => true,
         ]);
+    }
+
+    public function test_post_result_renders_sweet_alert_payload(): void
+    {
+        $response = $this->actingAs($this->admin)
+            ->followingRedirects()
+            ->post(route('admin.opds.store'), [
+                'kode_opd' => '1.10.01',
+                'nama_opd' => 'Dinas Pekerjaan Umum',
+                'is_active' => '1',
+            ]);
+
+        $response->assertOk()
+            ->assertSee('data-sweet-alert', false)
+            ->assertSee('data-icon="success"', false)
+            ->assertSee('OPD berhasil ditambahkan.');
     }
 
     public function test_opd_code_must_be_unique(): void
@@ -161,5 +262,26 @@ class OpdManagementTest extends TestCase
         $response->assertOk()
             ->assertSee('Dinas Pendidikan')
             ->assertSee('Disdik');
+    }
+
+    /**
+     * Build a DataTables request payload for tests.
+     *
+     * @param  list<array{data: string, name: string, searchable: string, orderable: string}>  $columns
+     * @return array<string, mixed>
+     */
+    private function dataTableQuery(array $columns, string $searchValue): array
+    {
+        return [
+            'draw' => 1,
+            'start' => 0,
+            'length' => 10,
+            'search' => ['value' => $searchValue, 'regex' => 'false'],
+            'order' => [['column' => 0, 'dir' => 'asc']],
+            'columns' => array_map(
+                fn (array $column): array => $column + ['search' => ['value' => '', 'regex' => 'false']],
+                $columns,
+            ),
+        ];
     }
 }

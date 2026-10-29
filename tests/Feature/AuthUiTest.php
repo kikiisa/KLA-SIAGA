@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\User;
 use App\Repositories\Contracts\UserRepositoryInterface;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
@@ -118,6 +119,11 @@ class AuthUiTest extends TestCase
             public function paginateWithRoles(int $perPage = 10): LengthAwarePaginator
             {
                 return new Paginator([], 0, $perPage);
+            }
+
+            public function queryWithRoles(): Builder
+            {
+                return User::query();
             }
 
             public function create(array $attributes): User

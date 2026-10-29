@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'flowbite/src/themes/default';
+@import 'datatables.net-dt/css/dataTables.dataTables.css';
 
 @plugin 'flowbite/plugin';
 @source '../../node_modules/flowbite';
@@ -22,4 +23,246 @@
     --color-fg-brand-subtle: var(--color-emerald-200);
     --color-fg-brand: var(--color-emerald-700);
     --color-fg-brand-strong: var(--color-emerald-900);
+}
+
+/* Yajra DataTables density */
+div.dt-container {
+    color: #475569;
+    font-size: 0.75rem;
+}
+
+div.dt-container .dt-length,
+div.dt-container .dt-search,
+div.dt-container .dt-info,
+div.dt-container .dt-processing,
+div.dt-container .dt-paging {
+    font-size: 0.75rem;
+}
+
+div.dt-container .dt-search input,
+div.dt-container .dt-input {
+    border: 1px solid #cbd5e1;
+    border-radius: 0.375rem;
+    background-color: #ffffff;
+    color: #0f172a;
+    font-size: 0.75rem;
+    padding: 0.375rem 0.625rem;
+}
+
+div.dt-container .dt-search input:focus,
+div.dt-container .dt-input:focus {
+    border-color: #047857;
+    outline: 2px solid #d1fae5;
+    outline-offset: 0;
+}
+
+div.dt-container .dt-paging .dt-paging-button {
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    padding: 0.375rem 0.625rem;
+}
+
+div.dt-container .dt-paging .dt-paging-button.current {
+    border-color: #a7f3d0;
+    background: #ecfdf5;
+    color: #047857;
+}
+
+:root {
+    --dt-order-arrow-width: 7px;
+    --dt-order-arrow-height: 5px;
+    --dt-order-arrow_color: #94a3b8;
+    --dt-order-arrow_color-current: #059669;
+    --dt-order-arrow_opacity: 0.2;
+    --dt-order-arrow_opacity-current: 0.9;
+}
+
+table.dataTable {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+}
+
+table.dataTable > thead > tr > th {
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    line-height: 1.4;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+table.dataTable > thead > tr > th.text-right {
+    text-align: right;
+}
+
+table.dataTable > thead > tr > th .dt-column-header {
+    gap: 0.375rem;
+    min-width: 0;
+}
+
+table.dataTable > thead > tr > th .dt-column-title {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+table.dataTable > tbody > tr > td {
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+    vertical-align: middle;
+}
+
+table.dataTable > tbody > tr:last-child > td {
+    border-bottom: 0;
+}
+
+table.dataTable > tbody > tr:hover > td {
+    background-color: #f8fafc;
+}
+
+table.dataTable > tbody > tr > td.text-right {
+    text-align: right;
+}
+
+/* Horizontal scroll for responsive DataTables */
+.datatable-scroll {
+    scrollbar-color: #cbd5e1 transparent;
+    scrollbar-width: thin;
+}
+
+.datatable-scroll::-webkit-scrollbar {
+    height: 10px;
+}
+
+.datatable-scroll::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 9999px;
+}
+
+.datatable-scroll::-webkit-scrollbar-thumb {
+    background-clip: padding-box;
+    background-color: #cbd5e1;
+    border: 2px solid #f1f5f9;
+    border-radius: 9999px;
+}
+
+.datatable-scroll:hover::-webkit-scrollbar-thumb {
+    background-color: #94a3b8;
+}
+
+.datatable-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: #64748b;
+}
+
+/* Sidebar navigation scrollbar */
+.sidebar-scroll {
+    scrollbar-color: rgba(110, 231, 183, 0.35) transparent;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+    background-clip: content-box;
+    background-color: rgba(110, 231, 183, 0.28);
+    border: 2px solid transparent;
+    border-radius: 9999px;
+    transition: background-color 150ms ease;
+}
+
+.sidebar-scroll:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(110, 231, 183, 0.5);
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(167, 243, 208, 0.7);
+}
+
+.sidebar-scroll::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* Stacked DataTables rows below the desktop breakpoint */
+@media (max-width: 1279px) {
+    .datatable-scroll {
+        overflow-x: visible;
+    }
+
+    table.dataTable {
+        display: block;
+        width: 100%;
+    }
+
+    table.dataTable > thead {
+        display: none;
+    }
+
+    table.dataTable > tbody {
+        display: block;
+    }
+
+    table.dataTable > tbody > tr {
+        display: block;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #f1f5f9;
+    }
+
+    table.dataTable > tbody > tr:last-child {
+        border-bottom: 0;
+    }
+
+    table.dataTable > tbody > tr:hover > td {
+        background-color: transparent;
+    }
+
+    table.dataTable > tbody > tr > td {
+        display: flex;
+        width: 100%;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.375rem 0.5rem;
+        border: 0;
+        text-align: left;
+    }
+
+    table.dataTable > tbody > tr > td::before {
+        flex: 0 0 5.5rem;
+        padding-top: 0.125rem;
+        color: #94a3b8;
+        content: attr(data-label);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
+
+    table.dataTable > tbody > tr > td > * {
+        min-width: 0;
+    }
+
+    table.dataTable > tbody > tr > td.text-right {
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    table.dataTable > tbody > tr > td:last-child {
+        justify-content: flex-end;
+        padding-top: 0.5rem;
+    }
+
+    table.dataTable > tbody > tr > td:last-child::before {
+        display: none;
+    }
 }
