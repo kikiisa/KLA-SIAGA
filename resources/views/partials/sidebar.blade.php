@@ -2,7 +2,7 @@
     $navItems = [
         ['icon' => 'grid', 'label' => 'Dashboard', 'route' => 'dashboard', 'active' => 'dashboard'],
         ['icon' => 'calendar', 'label' => 'Periode Evaluasi'],
-        ['icon' => 'building', 'label' => 'Manajemen OPD'],
+        ['icon' => 'building', 'label' => 'Manajemen OPD', 'route' => 'admin.opds.index', 'active' => 'admin.opds.*', 'permission' => 'opd.view'],
         ['icon' => 'document', 'label' => 'Indikator & Dokumen'],
         ['icon' => 'shield', 'label' => 'Verifikasi', 'badge' => '12'],
         ['icon' => 'chart', 'label' => 'Laporan & Progres'],

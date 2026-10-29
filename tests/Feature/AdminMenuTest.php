@@ -15,12 +15,14 @@ class AdminMenuTest extends TestCase
         $user->name = 'Admin KLA';
         $user->shouldReceive('can')->with('user.view')->andReturn(true);
         $user->shouldReceive('can')->with('role.view')->andReturn(true);
+        $user->shouldReceive('can')->with('opd.view')->andReturn(true);
 
         $response = $this->actingAs($user)->get('/dashboard');
 
         $response->assertOk()
             ->assertSee('Manajemen Pengguna')
-            ->assertSee('Role & Permission');
+            ->assertSee('Role & Permission')
+            ->assertSee('Manajemen OPD');
     }
 
     public function test_admin_menus_are_hidden_for_unauthorized_users(): void
@@ -34,6 +36,7 @@ class AdminMenuTest extends TestCase
 
         $response->assertOk()
             ->assertDontSee('Manajemen Pengguna')
-            ->assertDontSee('Role & Permission');
+            ->assertDontSee('Role & Permission')
+            ->assertDontSee('Manajemen OPD');
     }
 }

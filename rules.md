@@ -221,6 +221,14 @@ npm run build
 
 - Untuk pengembangan lokal, jalankan `npm run dev` atau `composer run dev`.
 
+### 7.1 Chart
+
+- Gunakan Chart.js untuk semua grafik.
+- Inisialisasi chart terpusat di `resources/js/app.js` berdasarkan atribut `data-chart` pada elemen `<canvas>`.
+- Kirim data chart melalui atribut `data-labels`, `data-values`, dan `data-colors` dengan `@json(..., JSON_HEX_APOS)`.
+- Jangan menggunakan `conic-gradient` atau progress bar CSS untuk grafik utama.
+- Jalankan `npm run build` atau pastikan `npm run dev` aktif setelah mengubah chart.
+
 ## 8. Testing
 
 - Setiap fitur baru wajib memiliki test.

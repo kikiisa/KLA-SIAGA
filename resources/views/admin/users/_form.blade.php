@@ -81,8 +81,15 @@
                 >
                     <option value="">Tidak terhubung OPD</option>
                     @foreach ($opds as $opd)
-                        <option value="{{ $opd->id }}" @selected((string) $selectedOpd === (string) $opd->id)>
-                            {{ $opd->singkatan ? $opd->singkatan.' — ' : '' }}{{ $opd->nama_opd }}
+                        @php
+                            $isSelectedOpd = (string) $selectedOpd === (string) $opd->id;
+                        @endphp
+                        <option
+                            value="{{ $opd->id }}"
+                            @selected($isSelectedOpd)
+                            @disabled(! $opd->is_active && ! $isSelectedOpd)
+                        >
+                            {{ $opd->singkatan ? $opd->singkatan.' — ' : '' }}{{ $opd->nama_opd }}{{ $opd->is_active ? '' : ' (Nonaktif)' }}
                         </option>
                     @endforeach
                 </select>

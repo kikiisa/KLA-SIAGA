@@ -29,13 +29,13 @@ class UserManagementService
     }
 
     /**
-     * Get active OPDs for the user form.
+     * Get all OPDs for the user form.
      *
      * @return Collection<int, Opd>
      */
     public function opds(): Collection
     {
-        return $this->opds->allActive();
+        return $this->opds->all();
     }
 
     /**

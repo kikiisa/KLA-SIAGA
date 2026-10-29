@@ -33,6 +33,6 @@
             </div>
         </div>
 
-        <p class="text-sm text-emerald-100/50">Dikelola oleh Pemerintah Kabupaten Sukamaju</p>
+        <p class="text-sm text-emerald-100/50">Dikelola oleh Pemerintah Kabupaten Gorontalo</p>
     </div>
 </section>

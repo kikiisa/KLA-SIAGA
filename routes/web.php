@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\OpdController;
 use App\Http\Controllers\Admin\RolePermissionController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
@@ -22,6 +23,30 @@ Route::middleware('auth')->group(function (): void {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
 });
+
+Route::middleware('auth')
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function (): void {
+        Route::get('opds', [OpdController::class, 'index'])
+            ->middleware('permission:opd.view')
+            ->name('opds.index');
+        Route::get('opds/create', [OpdController::class, 'create'])
+            ->middleware('permission:opd.create')
+            ->name('opds.create');
+        Route::post('opds', [OpdController::class, 'store'])
+            ->middleware('permission:opd.create')
+            ->name('opds.store');
+        Route::get('opds/{opd}/edit', [OpdController::class, 'edit'])
+            ->middleware('permission:opd.update')
+            ->name('opds.edit');
+        Route::put('opds/{opd}', [OpdController::class, 'update'])
+            ->middleware('permission:opd.update')
+            ->name('opds.update');
+        Route::delete('opds/{opd}', [OpdController::class, 'destroy'])
+            ->middleware('permission:opd.delete')
+            ->name('opds.destroy');
+    });
 
 Route::middleware(['auth', 'permission:user.view'])
     ->prefix('admin')

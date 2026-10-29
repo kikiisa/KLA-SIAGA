@@ -8,11 +8,20 @@
         $firstName = explode(' ', $user?->name ?? 'Andi Kurniawan')[0];
         $today = now()->locale('id')->translatedFormat('l, j F Y');
 
+        $verificationBreakdown = [
+            ['label' => 'Terverifikasi', 'value' => 108, 'color' => '#10b981'],
+            ['label' => 'Menunggu verifikasi', 'value' => 24, 'color' => '#0ea5e9'],
+            ['label' => 'Perlu revisi', 'value' => 16, 'color' => '#f59e0b'],
+            ['label' => 'Belum diunggah', 'value' => 12, 'color' => '#cbd5e1'],
+        ];
+        $totalDocuments = array_sum(array_column($verificationBreakdown, 'value'));
+        $verifiedPercentage = (int) round(($verificationBreakdown[0]['value'] / $totalDocuments) * 100);
+
         $stats = [
             ['icon' => 'document', 'label' => 'Total indikator', 'value' => '32', 'note' => 'Dalam 5 cluster aktif', 'tone' => 'teal'],
             ['icon' => 'clock', 'label' => 'Menunggu verifikasi', 'value' => '12', 'note' => '4 dokumen baru hari ini', 'tone' => 'blue'],
             ['icon' => 'warning', 'label' => 'Perlu revisi', 'value' => '8', 'note' => '3 mendekati tenggat', 'tone' => 'amber'],
-            ['icon' => 'check', 'label' => 'Terverifikasi', 'value' => '68%', 'note' => 'Naik 12% bulan ini', 'tone' => 'green'],
+            ['icon' => 'check', 'label' => 'Terverifikasi', 'value' => $verifiedPercentage.'%', 'note' => 'Naik 12% bulan ini', 'tone' => 'green'],
         ];
         $statTones = [
             'teal' => 'bg-teal-50 text-teal-600 ring-teal-100',
@@ -22,16 +31,11 @@
         ];
 
         $clusters = [
-            ['name' => 'Hak Sipil dan Kebebasan', 'value' => 86, 'color' => 'emerald'],
-            ['name' => 'Lingkungan Keluarga & Pengasuhan', 'value' => 74, 'color' => 'sky'],
-            ['name' => 'Kesehatan Dasar & Kesejahteraan', 'value' => 68, 'color' => 'sky'],
-            ['name' => 'Pendidikan & Kegiatan Budaya', 'value' => 55, 'color' => 'amber'],
-            ['name' => 'Perlindungan Khusus', 'value' => 42, 'color' => 'amber'],
-        ];
-        $progressColors = [
-            'emerald' => 'bg-emerald-500',
-            'sky' => 'bg-sky-500',
-            'amber' => 'bg-amber-500',
+            ['name' => 'Hak Sipil dan Kebebasan', 'value' => 86, 'color' => '#10b981'],
+            ['name' => 'Lingkungan Keluarga & Pengasuhan', 'value' => 74, 'color' => '#0ea5e9'],
+            ['name' => 'Kesehatan Dasar & Kesejahteraan', 'value' => 68, 'color' => '#0ea5e9'],
+            ['name' => 'Pendidikan & Kegiatan Budaya', 'value' => 55, 'color' => '#f59e0b'],
+            ['name' => 'Perlindungan Khusus', 'value' => 42, 'color' => '#f59e0b'],
         ];
 
         $verificationRows = [
@@ -97,24 +101,29 @@
             </div>
 
             <div class="mt-6 flex flex-col items-center gap-8 sm:flex-row sm:items-center sm:justify-around">
-                <div class="grid h-40 w-40 shrink-0 place-items-center rounded-full" style="background: conic-gradient(#0d9488 0% 68%, #e2e8f0 68% 100%);">
-                    <div class="grid h-28 w-28 place-items-center rounded-full bg-white text-center shadow-inner">
+                <div class="relative h-40 w-40 shrink-0">
+                    <canvas
+                        id="verification-chart"
+                        data-chart="doughnut"
+                        data-labels='@json(array_column($verificationBreakdown, 'label'), JSON_HEX_APOS)'
+                        data-values='@json(array_column($verificationBreakdown, 'value'), JSON_HEX_APOS)'
+                        data-colors='@json(array_column($verificationBreakdown, 'color'), JSON_HEX_APOS)'
+                        class="h-full w-full"
+                        role="img"
+                        aria-label="Rekap status verifikasi dokumen"
+                    ></canvas>
+                    <div class="pointer-events-none absolute inset-0 grid place-items-center text-center">
                         <div>
-                            <strong class="block text-2xl font-semibold tracking-tight text-slate-900">68%</strong>
+                            <strong class="block text-2xl font-semibold tracking-tight text-slate-900">{{ $verifiedPercentage }}%</strong>
                             <span class="text-[11px] text-slate-500">Terverifikasi</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="w-full max-w-xs space-y-3">
-                    @foreach ([
-                        ['tone' => 'bg-emerald-500', 'value' => '108', 'label' => 'Terverifikasi'],
-                        ['tone' => 'bg-sky-500', 'value' => '24', 'label' => 'Menunggu verifikasi'],
-                        ['tone' => 'bg-amber-500', 'value' => '16', 'label' => 'Perlu revisi'],
-                        ['tone' => 'bg-slate-300', 'value' => '12', 'label' => 'Belum diunggah'],
-                    ] as $legend)
+                    @foreach ($verificationBreakdown as $legend)
                         <div class="flex items-center gap-2.5 text-sm">
-                            <span class="h-2.5 w-2.5 shrink-0 rounded-full {{ $legend['tone'] }}"></span>
+                            <span class="h-2.5 w-2.5 shrink-0 rounded-full" style="background-color: {{ $legend['color'] }}"></span>
                             <span class="text-slate-500">
                                 <b class="font-semibold text-slate-800">{{ $legend['value'] }}</b>
                                 {{ $legend['label'] }}
@@ -152,18 +161,17 @@
                 </button>
             </div>
 
-            <div class="mt-5 space-y-4">
-                @foreach ($clusters as $cluster)
-                    <div>
-                        <div class="flex items-center justify-between gap-3 text-xs">
-                            <span class="font-medium text-slate-600">{{ $cluster['name'] }}</span>
-                            <b class="font-semibold text-slate-800">{{ $cluster['value'] }}%</b>
-                        </div>
-                        <div class="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-100">
-                            <span class="block h-full rounded-full {{ $progressColors[$cluster['color']] }}" style="width: {{ $cluster['value'] }}%"></span>
-                        </div>
-                    </div>
-                @endforeach
+            <div class="mt-5 h-64">
+                <canvas
+                    id="cluster-progress-chart"
+                    data-chart="horizontal-bar"
+                    data-labels='@json(array_column($clusters, 'name'), JSON_HEX_APOS)'
+                    data-values='@json(array_column($clusters, 'value'), JSON_HEX_APOS)'
+                    data-colors='@json(array_column($clusters, 'color'), JSON_HEX_APOS)'
+                    class="h-full w-full"
+                    role="img"
+                    aria-label="Progres verifikasi per cluster"
+                ></canvas>
             </div>
         </article>
 
