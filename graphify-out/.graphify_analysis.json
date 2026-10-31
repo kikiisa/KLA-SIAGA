@@ -1,0 +1,801 @@
+{
+  "communities": {
+    "0": [
+      "app_http_controllers_admin_rolepermissioncontroller_rolepermissioncontroller_construct",
+      "app_providers_appserviceprovider",
+      "app_providers_appserviceprovider_appserviceprovider",
+      "app_providers_appserviceprovider_appserviceprovider_boot",
+      "app_providers_appserviceprovider_appserviceprovider_register",
+      "app_repositories_contracts_opdrepositoryinterface",
+      "app_repositories_contracts_opdrepositoryinterface_all",
+      "app_repositories_contracts_opdrepositoryinterface_allactive",
+      "app_repositories_contracts_opdrepositoryinterface_create",
+      "app_repositories_contracts_opdrepositoryinterface_delete",
+      "app_repositories_contracts_opdrepositoryinterface_hasusers",
+      "app_repositories_contracts_opdrepositoryinterface_paginatewithusercount",
+      "app_repositories_contracts_opdrepositoryinterface_update",
+      "app_repositories_contracts_rolerepositoryinterface",
+      "app_repositories_contracts_rolerepositoryinterface_all",
+      "app_repositories_contracts_rolerepositoryinterface_allpermissions",
+      "app_repositories_contracts_rolerepositoryinterface_allwithpermissions",
+      "app_repositories_contracts_rolerepositoryinterface_syncpermissions",
+      "app_repositories_contracts_userrepositoryinterface_paginatewithroles",
+      "app_repositories_eloquentopdrepository",
+      "app_repositories_eloquentopdrepository_eloquentopdrepository_paginatewithusercount",
+      "app_repositories_eloquentrolerepository",
+      "app_repositories_eloquentrolerepository_eloquentrolerepository",
+      "app_repositories_eloquentrolerepository_eloquentrolerepository_all",
+      "app_repositories_eloquentrolerepository_eloquentrolerepository_allpermissions",
+      "app_repositories_eloquentrolerepository_eloquentrolerepository_allwithpermissions",
+      "app_repositories_eloquentrolerepository_eloquentrolerepository_syncpermissions",
+      "app_repositories_eloquentrolerepository_php_role",
+      "app_services_opdmanagementservice",
+      "app_services_opdmanagementservice_opdmanagementservice",
+      "app_services_opdmanagementservice_opdmanagementservice_all",
+      "app_services_opdmanagementservice_opdmanagementservice_construct",
+      "app_services_opdmanagementservice_opdmanagementservice_create",
+      "app_services_opdmanagementservice_opdmanagementservice_delete",
+      "app_services_opdmanagementservice_opdmanagementservice_paginate",
+      "app_services_opdmanagementservice_opdmanagementservice_update",
+      "app_services_rolepermissionservice",
+      "app_services_rolepermissionservice_rolepermissionservice",
+      "app_services_rolepermissionservice_rolepermissionservice_construct",
+      "app_services_rolepermissionservice_rolepermissionservice_permissions",
+      "app_services_rolepermissionservice_rolepermissionservice_roleswithpermissions",
+      "app_services_rolepermissionservice_rolepermissionservice_sync",
+      "app_services_usermanagementservice",
+      "app_services_usermanagementservice_usermanagementservice",
+      "app_services_usermanagementservice_usermanagementservice_construct",
+      "app_services_usermanagementservice_usermanagementservice_create",
+      "app_services_usermanagementservice_usermanagementservice_delete",
+      "app_services_usermanagementservice_usermanagementservice_opds",
+      "app_services_usermanagementservice_usermanagementservice_paginate",
+      "app_services_usermanagementservice_usermanagementservice_roles",
+      "app_services_usermanagementservice_usermanagementservice_update",
+      "bootstrap_providers",
+      "config_permission",
+      "database_seeders_rolepermissionseeder_rolepermissionseeder_run",
+      "illuminate_contracts_pagination_lengthawarepaginator",
+      "illuminate_database_eloquent_collection",
+      "illuminate_support_serviceprovider",
+      "spatie_permission_models_role"
+    ],
+    "1": [
+      "composer",
+      "composer_allow_plugins_pestphp_pest_plugin",
+      "composer_allow_plugins_php_http_discovery",
+      "composer_autoload",
+      "composer_autoload_dev",
+      "composer_autoload_dev_psr_4",
+      "composer_autoload_psr_4",
+      "composer_config",
+      "composer_config_allow_plugins",
+      "composer_config_optimize_autoloader",
+      "composer_config_preferred_install",
+      "composer_config_sort_packages",
+      "composer_description",
+      "composer_extra",
+      "composer_extra_laravel",
+      "composer_keywords",
+      "composer_laravel_dont_discover",
+      "composer_license",
+      "composer_minimum_stability",
+      "composer_name",
+      "composer_prefer_stable",
+      "composer_psr_4_app",
+      "composer_psr_4_database_factories",
+      "composer_psr_4_database_seeders",
+      "composer_psr_4_tests",
+      "composer_require",
+      "composer_require_dev",
+      "composer_require_dev_fakerphp_faker",
+      "composer_require_dev_laravel_boost",
+      "composer_require_dev_laravel_pail",
+      "composer_require_dev_laravel_pao",
+      "composer_require_dev_laravel_pint",
+      "composer_require_dev_mockery_mockery",
+      "composer_require_dev_nunomaduro_collision",
+      "composer_require_dev_phpunit_phpunit",
+      "composer_require_laravel_framework",
+      "composer_require_laravel_tinker",
+      "composer_require_php",
+      "composer_require_spatie_laravel_permission",
+      "composer_require_yajra_laravel_datatables_oracle",
+      "composer_schema",
+      "composer_type",
+      "ref_framework",
+      "ref_laravel"
+    ],
+    "2": [
+      "app_datatables_userdatatable_userdatatable",
+      "app_datatables_userdatatable_userdatatable_actioncolumn",
+      "app_datatables_userdatatable_userdatatable_construct",
+      "app_datatables_userdatatable_userdatatable_json",
+      "app_datatables_userdatatable_userdatatable_namecolumn",
+      "app_datatables_userdatatable_userdatatable_opdcolumn",
+      "app_datatables_userdatatable_userdatatable_rolescolumn",
+      "app_datatables_userdatatable_userdatatable_statuscolumn",
+      "app_models_user",
+      "app_models_user_user",
+      "app_models_user_user_casts",
+      "app_models_user_user_isadmin",
+      "app_models_user_user_opd",
+      "app_repositories_contracts_opdrepositoryinterface_querywithusercount",
+      "app_repositories_contracts_userrepositoryinterface",
+      "app_repositories_contracts_userrepositoryinterface_create",
+      "app_repositories_contracts_userrepositoryinterface_delete",
+      "app_repositories_contracts_userrepositoryinterface_findbyemail",
+      "app_repositories_contracts_userrepositoryinterface_querywithroles",
+      "app_repositories_contracts_userrepositoryinterface_update",
+      "app_repositories_contracts_userrepositoryinterface_updatepassword",
+      "app_repositories_eloquentopdrepository_eloquentopdrepository_querywithusercount",
+      "app_repositories_eloquentuserrepository",
+      "app_repositories_eloquentuserrepository_eloquentuserrepository",
+      "app_repositories_eloquentuserrepository_eloquentuserrepository_create",
+      "app_repositories_eloquentuserrepository_eloquentuserrepository_delete",
+      "app_repositories_eloquentuserrepository_eloquentuserrepository_findbyemail",
+      "app_repositories_eloquentuserrepository_eloquentuserrepository_paginatewithroles",
+      "app_repositories_eloquentuserrepository_eloquentuserrepository_querywithroles",
+      "app_repositories_eloquentuserrepository_eloquentuserrepository_update",
+      "app_repositories_eloquentuserrepository_eloquentuserrepository_updatepassword",
+      "app_services_authservice",
+      "config_auth",
+      "illuminate_database_eloquent_builder",
+      "illuminate_database_eloquent_relations_belongsto",
+      "illuminate_foundation_auth_user",
+      "illuminate_notifications_notifiable",
+      "spatie_permission_traits_hasroles",
+      "tests_feature_opdmanagementtest_opdmanagementtest_setup",
+      "tests_feature_opdmanagementtest_opdmanagementtest_test_users_without_permission_cannot_access_opd_management"
+    ],
+    "3": [
+      "app_models_opd",
+      "app_models_opd_opd",
+      "app_models_opd_opd_casts",
+      "app_models_opd_opd_users",
+      "app_repositories_eloquentopdrepository_eloquentopdrepository",
+      "app_repositories_eloquentopdrepository_eloquentopdrepository_all",
+      "app_repositories_eloquentopdrepository_eloquentopdrepository_allactive",
+      "app_repositories_eloquentopdrepository_eloquentopdrepository_create",
+      "app_repositories_eloquentopdrepository_eloquentopdrepository_delete",
+      "app_repositories_eloquentopdrepository_eloquentopdrepository_hasusers",
+      "app_repositories_eloquentopdrepository_eloquentopdrepository_update",
+      "illuminate_database_eloquent_factories_hasfactory",
+      "illuminate_database_eloquent_model",
+      "illuminate_database_eloquent_relations_hasmany",
+      "illuminate_database_eloquent_softdeletes",
+      "illuminate_foundation_testing_refreshdatabase",
+      "tests_feature_opdmanagementtest",
+      "tests_feature_opdmanagementtest_opdmanagementtest",
+      "tests_feature_opdmanagementtest_opdmanagementtest_datatablequery",
+      "tests_feature_opdmanagementtest_opdmanagementtest_test_admin_can_create_opd",
+      "tests_feature_opdmanagementtest_opdmanagementtest_test_admin_can_delete_opd",
+      "tests_feature_opdmanagementtest_opdmanagementtest_test_admin_can_fetch_opd_datatable_data",
+      "tests_feature_opdmanagementtest_opdmanagementtest_test_admin_can_fetch_user_datatable_data",
+      "tests_feature_opdmanagementtest_opdmanagementtest_test_admin_can_update_opd",
+      "tests_feature_opdmanagementtest_opdmanagementtest_test_admin_can_view_opd_list",
+      "tests_feature_opdmanagementtest_opdmanagementtest_test_guests_are_redirected_to_login_from_opd_management",
+      "tests_feature_opdmanagementtest_opdmanagementtest_test_opd_code_must_be_unique",
+      "tests_feature_opdmanagementtest_opdmanagementtest_test_opd_datatable_search_does_not_return_an_error",
+      "tests_feature_opdmanagementtest_opdmanagementtest_test_opd_with_users_cannot_be_deleted",
+      "tests_feature_opdmanagementtest_opdmanagementtest_test_post_result_renders_sweet_alert_payload",
+      "tests_feature_opdmanagementtest_opdmanagementtest_test_user_datatable_search_does_not_return_an_error",
+      "tests_feature_opdmanagementtest_opdmanagementtest_test_user_form_dropdown_lists_opds_from_database"
+    ],
+    "4": [
+      "chart_js",
+      "concurrently",
+      "datatables_net",
+      "datatables_net_dt",
+      "flowbite",
+      "laravel_multiplex",
+      "laravel_vite_plugin",
+      "package",
+      "package_dependencies",
+      "package_dependencies_chart_js",
+      "package_dependencies_datatables_net",
+      "package_dependencies_datatables_net_dt",
+      "package_dependencies_flowbite",
+      "package_dependencies_sweetalert2",
+      "package_devdependencies",
+      "package_devdependencies_concurrently",
+      "package_devdependencies_laravel_vite_plugin",
+      "package_devdependencies_tailwindcss",
+      "package_devdependencies_tailwindcss_vite",
+      "package_devdependencies_vite",
+      "package_optionaldependencies",
+      "package_optionaldependencies_laravel_multiplex",
+      "package_private",
+      "package_schema",
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_type",
+      "sweetalert2",
+      "tailwindcss",
+      "tailwindcss_vite",
+      "vite"
+    ],
+    "5": [
+      "composer_scripts",
+      "composer_scripts_dev",
+      "composer_scripts_post_autoload_dump",
+      "composer_scripts_post_create_project_cmd",
+      "composer_scripts_post_root_package_install",
+      "composer_scripts_post_update_cmd",
+      "composer_scripts_pre_package_uninstall",
+      "composer_scripts_setup",
+      "composer_scripts_test",
+      "ref_composer_config_disableprocesstimeout",
+      "ref_composer_install",
+      "ref_illuminate_foundation_composerscripts_postautoloaddump",
+      "ref_illuminate_foundation_composerscripts_prepackageuninstall",
+      "ref_npm_install_ignore_scripts",
+      "ref_npm_run_build",
+      "ref_php_artisan_config_clear_ansi_no_additional_args",
+      "ref_php_artisan_dev",
+      "ref_php_artisan_key_generate",
+      "ref_php_artisan_key_generate_ansi",
+      "ref_php_artisan_migrate_force",
+      "ref_php_artisan_migrate_graceful_ansi",
+      "ref_php_artisan_package_discover_ansi",
+      "ref_php_artisan_test",
+      "ref_php_artisan_vendor_publish_tag_laravel_assets_ansi_force",
+      "ref_php_r_file_exists_database_database_sqlite_touch_database_database_sqlite",
+      "ref_php_r_file_exists_env_copy_env_example_env"
+    ],
+    "6": [
+      "app_http_controllers_admin_opdcontroller",
+      "app_http_controllers_admin_opdcontroller_opdcontroller",
+      "app_http_controllers_admin_opdcontroller_opdcontroller_construct",
+      "app_http_controllers_admin_opdcontroller_opdcontroller_create",
+      "app_http_controllers_admin_opdcontroller_opdcontroller_edit",
+      "app_http_controllers_admin_opdcontroller_opdcontroller_index",
+      "app_http_controllers_admin_opdcontroller_opdcontroller_store",
+      "app_http_controllers_admin_rolepermissioncontroller",
+      "app_http_controllers_admin_rolepermissioncontroller_rolepermissioncontroller",
+      "app_http_controllers_admin_rolepermissioncontroller_rolepermissioncontroller_index",
+      "app_http_controllers_admin_rolepermissioncontroller_rolepermissioncontroller_update",
+      "app_http_controllers_admin_usercontroller",
+      "app_http_controllers_controller",
+      "app_http_controllers_controller_controller",
+      "app_http_controllers_dashboardcontroller",
+      "app_http_controllers_dashboardcontroller_dashboardcontroller",
+      "app_http_controllers_dashboardcontroller_dashboardcontroller_index",
+      "illuminate_view_view",
+      "routes_web"
+    ],
+    "7": [
+      "illuminate_foundation_testing_testcase",
+      "tests_feature_adminmenutest",
+      "tests_feature_adminmenutest_adminmenutest",
+      "tests_feature_adminmenutest_adminmenutest_test_admin_menus_are_hidden_for_unauthorized_users",
+      "tests_feature_adminmenutest_adminmenutest_test_admin_menus_are_visible_for_authorized_users",
+      "tests_feature_authuitest",
+      "tests_feature_authuitest_authuitest",
+      "tests_feature_authuitest_authuitest_binduserrepository",
+      "tests_feature_authuitest_authuitest_test_authenticated_user_can_logout",
+      "tests_feature_authuitest_authuitest_test_dashboard_is_rendered_for_authenticated_users",
+      "tests_feature_authuitest_authuitest_test_guests_are_redirected_to_login_from_dashboard",
+      "tests_feature_authuitest_authuitest_test_login_page_is_rendered_without_role_selection",
+      "tests_feature_authuitest_authuitest_test_user_can_login_with_valid_credentials",
+      "tests_feature_authuitest_authuitest_test_user_cannot_login_with_invalid_credentials",
+      "tests_feature_exampletest",
+      "tests_feature_exampletest_exampletest",
+      "tests_feature_exampletest_exampletest_test_the_application_redirects_guests_to_login",
+      "tests_testcase",
+      "tests_testcase_testcase"
+    ],
+    "8": [
+      "app_http_controllers_admin_usercontroller_usercontroller_update",
+      "app_http_requests_loginrequest",
+      "app_http_requests_loginrequest_loginrequest",
+      "app_http_requests_loginrequest_loginrequest_authorize",
+      "app_http_requests_loginrequest_loginrequest_messages",
+      "app_http_requests_loginrequest_loginrequest_rules",
+      "app_http_requests_updaterolepermissionsrequest",
+      "app_http_requests_updaterolepermissionsrequest_updaterolepermissionsrequest",
+      "app_http_requests_updaterolepermissionsrequest_updaterolepermissionsrequest_authorize",
+      "app_http_requests_updaterolepermissionsrequest_updaterolepermissionsrequest_rules",
+      "app_http_requests_updateuserrequest",
+      "app_http_requests_updateuserrequest_updateuserrequest",
+      "app_http_requests_updateuserrequest_updateuserrequest_authorize",
+      "app_http_requests_updateuserrequest_updateuserrequest_prepareforvalidation",
+      "app_http_requests_updateuserrequest_updateuserrequest_rules",
+      "illuminate_foundation_http_formrequest"
+    ],
+    "9": [
+      "app_http_controllers_admin_opdcontroller_opdcontroller_destroy",
+      "app_http_controllers_authcontroller",
+      "app_http_controllers_authcontroller_authcontroller",
+      "app_http_controllers_authcontroller_authcontroller_construct",
+      "app_http_controllers_authcontroller_authcontroller_create",
+      "app_http_controllers_authcontroller_authcontroller_destroy",
+      "app_http_controllers_authcontroller_authcontroller_store",
+      "app_services_authservice_authservice",
+      "app_services_authservice_authservice_attempt",
+      "app_services_authservice_authservice_construct",
+      "app_services_authservice_authservice_logout",
+      "bootstrap_app",
+      "illuminate_http_redirectresponse",
+      "illuminate_http_request",
+      "public_index"
+    ],
+    "10": [
+      "app_datatables_opddatatable",
+      "app_datatables_opddatatable_opddatatable",
+      "app_datatables_opddatatable_opddatatable_actioncolumn",
+      "app_datatables_opddatatable_opddatatable_construct",
+      "app_datatables_opddatatable_opddatatable_contactcolumn",
+      "app_datatables_opddatatable_opddatatable_json",
+      "app_datatables_opddatatable_opddatatable_namecolumn",
+      "app_datatables_opddatatable_opddatatable_statuscolumn",
+      "app_datatables_opddatatable_opddatatable_userscolumn",
+      "app_datatables_userdatatable",
+      "app_http_controllers_admin_opdcontroller_opdcontroller_data",
+      "app_http_controllers_admin_usercontroller_usercontroller_data",
+      "illuminate_http_jsonresponse"
+    ],
+    "11": [
+      "database_seeders_databaseseeder",
+      "database_seeders_databaseseeder_databaseseeder",
+      "database_seeders_databaseseeder_databaseseeder_run",
+      "database_seeders_opdseeder",
+      "database_seeders_opdseeder_opdseeder",
+      "database_seeders_opdseeder_opdseeder_run",
+      "database_seeders_rolepermissionseeder",
+      "database_seeders_rolepermissionseeder_rolepermissionseeder",
+      "illuminate_database_console_seeds_withoutmodelevents",
+      "illuminate_database_seeder"
+    ],
+    "12": [
+      "database_factories_opdfactory",
+      "database_factories_opdfactory_opdfactory",
+      "database_factories_opdfactory_opdfactory_definition",
+      "database_factories_userfactory",
+      "database_factories_userfactory_userfactory",
+      "database_factories_userfactory_userfactory_definition",
+      "database_factories_userfactory_userfactory_unverified",
+      "illuminate_database_eloquent_factories_factory",
+      "static"
+    ],
+    "13": [
+      "app_http_controllers_admin_opdcontroller_opdcontroller_update",
+      "app_http_requests_updateopdrequest",
+      "app_http_requests_updateopdrequest_updateopdrequest",
+      "app_http_requests_updateopdrequest_updateopdrequest_authorize",
+      "app_http_requests_updateopdrequest_updateopdrequest_messages",
+      "app_http_requests_updateopdrequest_updateopdrequest_prepareforvalidation",
+      "app_http_requests_updateopdrequest_updateopdrequest_rules"
+    ],
+    "14": [
+      "app_http_controllers_admin_usercontroller_usercontroller",
+      "app_http_controllers_admin_usercontroller_usercontroller_construct",
+      "app_http_controllers_admin_usercontroller_usercontroller_create",
+      "app_http_controllers_admin_usercontroller_usercontroller_destroy",
+      "app_http_controllers_admin_usercontroller_usercontroller_edit",
+      "app_http_controllers_admin_usercontroller_usercontroller_index",
+      "app_http_controllers_admin_usercontroller_usercontroller_store"
+    ],
+    "15": [
+      "app_http_requests_storeopdrequest",
+      "app_http_requests_storeopdrequest_storeopdrequest",
+      "app_http_requests_storeopdrequest_storeopdrequest_authorize",
+      "app_http_requests_storeopdrequest_storeopdrequest_messages",
+      "app_http_requests_storeopdrequest_storeopdrequest_prepareforvalidation",
+      "app_http_requests_storeopdrequest_storeopdrequest_rules"
+    ],
+    "16": [
+      "app_http_requests_storeuserrequest",
+      "app_http_requests_storeuserrequest_storeuserrequest",
+      "app_http_requests_storeuserrequest_storeuserrequest_authorize",
+      "app_http_requests_storeuserrequest_storeuserrequest_prepareforvalidation",
+      "app_http_requests_storeuserrequest_storeuserrequest_rules"
+    ],
+    "17": [
+      "partials_footer",
+      "partials_header",
+      "partials_sidebar",
+      "resources_views_layouts_app_blade"
+    ],
+    "18": [
+      "phpunit_framework_testcase",
+      "tests_unit_exampletest",
+      "tests_unit_exampletest_exampletest",
+      "tests_unit_exampletest_exampletest_test_that_true_is_true"
+    ],
+    "19": [
+      "resources_js_app",
+      "resources_js_app_chartbuilders",
+      "resources_js_app_parsedataset",
+      "resources_js_app_tooltipoptions"
+    ],
+    "20": [
+      "database_migrations_0001_01_01_000000_create_users_table",
+      "database_migrations_0001_01_01_000000_create_users_table_down",
+      "database_migrations_0001_01_01_000000_create_users_table_up"
+    ],
+    "21": [
+      "database_migrations_0001_01_01_000001_create_cache_table",
+      "database_migrations_0001_01_01_000001_create_cache_table_down",
+      "database_migrations_0001_01_01_000001_create_cache_table_up"
+    ],
+    "22": [
+      "database_migrations_0001_01_01_000002_create_jobs_table",
+      "database_migrations_0001_01_01_000002_create_jobs_table_down",
+      "database_migrations_0001_01_01_000002_create_jobs_table_up"
+    ],
+    "23": [
+      "database_migrations_2026_10_28_113717_create_permission_tables",
+      "database_migrations_2026_10_28_113717_create_permission_tables_down",
+      "database_migrations_2026_10_28_113717_create_permission_tables_up"
+    ],
+    "24": [
+      "database_migrations_2026_10_28_113732_create_opds_table",
+      "database_migrations_2026_10_28_113732_create_opds_table_down",
+      "database_migrations_2026_10_28_113732_create_opds_table_up"
+    ],
+    "25": [
+      "database_migrations_2026_10_28_113734_add_opd_and_status_to_users_table",
+      "database_migrations_2026_10_28_113734_add_opd_and_status_to_users_table_down",
+      "database_migrations_2026_10_28_113734_add_opd_and_status_to_users_table_up"
+    ],
+    "26": [
+      "database_migrations_2026_10_28_113735_create_evaluation_periods_table",
+      "database_migrations_2026_10_28_113735_create_evaluation_periods_table_down",
+      "database_migrations_2026_10_28_113735_create_evaluation_periods_table_up"
+    ],
+    "27": [
+      "database_migrations_2026_10_28_113736_create_clusters_table",
+      "database_migrations_2026_10_28_113736_create_clusters_table_down",
+      "database_migrations_2026_10_28_113736_create_clusters_table_up"
+    ],
+    "28": [
+      "database_migrations_2026_10_28_113737_create_cluster_opds_table",
+      "database_migrations_2026_10_28_113737_create_cluster_opds_table_down",
+      "database_migrations_2026_10_28_113737_create_cluster_opds_table_up"
+    ],
+    "29": [
+      "database_migrations_2026_10_28_113738_create_indicators_table",
+      "database_migrations_2026_10_28_113738_create_indicators_table_down",
+      "database_migrations_2026_10_28_113738_create_indicators_table_up"
+    ],
+    "30": [
+      "database_migrations_2026_10_28_113739_create_indicator_assignments_table",
+      "database_migrations_2026_10_28_113739_create_indicator_assignments_table_down",
+      "database_migrations_2026_10_28_113739_create_indicator_assignments_table_up"
+    ],
+    "31": [
+      "database_migrations_2026_10_28_113741_create_subdocuments_table",
+      "database_migrations_2026_10_28_113741_create_subdocuments_table_down",
+      "database_migrations_2026_10_28_113741_create_subdocuments_table_up"
+    ],
+    "32": [
+      "database_migrations_2026_10_28_113742_create_documents_table",
+      "database_migrations_2026_10_28_113742_create_documents_table_down",
+      "database_migrations_2026_10_28_113742_create_documents_table_up"
+    ],
+    "33": [
+      "database_migrations_2026_10_28_113743_create_document_versions_table",
+      "database_migrations_2026_10_28_113743_create_document_versions_table_down",
+      "database_migrations_2026_10_28_113743_create_document_versions_table_up"
+    ],
+    "34": [
+      "database_migrations_2026_10_28_113744_add_current_version_to_documents_table",
+      "database_migrations_2026_10_28_113744_add_current_version_to_documents_table_down",
+      "database_migrations_2026_10_28_113744_add_current_version_to_documents_table_up"
+    ],
+    "35": [
+      "database_migrations_2026_10_28_113745_create_document_comments_table",
+      "database_migrations_2026_10_28_113745_create_document_comments_table_down",
+      "database_migrations_2026_10_28_113745_create_document_comments_table_up"
+    ],
+    "36": [
+      "database_migrations_2026_10_28_113746_create_verifications_table",
+      "database_migrations_2026_10_28_113746_create_verifications_table_down",
+      "database_migrations_2026_10_28_113746_create_verifications_table_up"
+    ],
+    "37": [
+      "database_migrations_2026_10_28_113748_create_notifications_table",
+      "database_migrations_2026_10_28_113748_create_notifications_table_down",
+      "database_migrations_2026_10_28_113748_create_notifications_table_up"
+    ],
+    "38": [
+      "database_migrations_2026_10_28_113749_create_audit_logs_table",
+      "database_migrations_2026_10_28_113749_create_audit_logs_table_down",
+      "database_migrations_2026_10_28_113749_create_audit_logs_table_up"
+    ],
+    "39": [
+      "partials_auth_story",
+      "resources_views_auth_login_blade",
+      "resources_views_auth_login_blade_php_partials_alerts"
+    ],
+    "40": [
+      "resources_views_admin_opds_create_blade",
+      "resources_views_admin_opds_create_blade_php_admin_opds_form",
+      "resources_views_admin_opds_create_blade_php_partials_alerts"
+    ],
+    "41": [
+      "resources_views_admin_opds_edit_blade",
+      "resources_views_admin_opds_edit_blade_php_admin_opds_form",
+      "resources_views_admin_opds_edit_blade_php_partials_alerts"
+    ],
+    "42": [
+      "resources_views_admin_users_create_blade",
+      "resources_views_admin_users_create_blade_php_admin_users_form",
+      "resources_views_admin_users_create_blade_php_partials_alerts"
+    ],
+    "43": [
+      "resources_views_admin_users_edit_blade",
+      "resources_views_admin_users_edit_blade_php_admin_users_form",
+      "resources_views_admin_users_edit_blade_php_partials_alerts"
+    ],
+    "44": [
+      "artisan",
+      "routes_console"
+    ],
+    "45": [
+      "resources_views_admin_opds_index_blade",
+      "resources_views_admin_opds_index_blade_php_partials_alerts"
+    ],
+    "46": [
+      "resources_views_admin_roles_index_blade",
+      "resources_views_admin_roles_index_blade_php_partials_alerts"
+    ],
+    "47": [
+      "resources_views_admin_users_index_blade",
+      "resources_views_admin_users_index_blade_php_partials_alerts"
+    ],
+    "48": [
+      "config_app"
+    ],
+    "49": [
+      "config_cache"
+    ],
+    "50": [
+      "config_database"
+    ],
+    "51": [
+      "config_filesystems"
+    ],
+    "52": [
+      "config_logging"
+    ],
+    "53": [
+      "config_mail"
+    ],
+    "54": [
+      "config_queue"
+    ],
+    "55": [
+      "config_services"
+    ],
+    "56": [
+      "config_session"
+    ],
+    "57": [
+      "resources_views_admin_opds_form_blade"
+    ],
+    "58": [
+      "resources_views_admin_users_form_blade"
+    ],
+    "59": [
+      "resources_views_components_icon_blade"
+    ],
+    "60": [
+      "resources_views_components_logo_blade"
+    ],
+    "61": [
+      "resources_views_dashboard_blade"
+    ],
+    "62": [
+      "resources_views_layouts_auth_blade"
+    ],
+    "63": [
+      "resources_views_partials_alerts_blade"
+    ],
+    "64": [
+      "resources_views_partials_auth_story_blade"
+    ],
+    "65": [
+      "resources_views_partials_footer_blade"
+    ],
+    "66": [
+      "resources_views_partials_header_blade"
+    ],
+    "67": [
+      "resources_views_partials_sidebar_blade"
+    ],
+    "68": [
+      "resources_views_welcome_blade"
+    ],
+    "69": [
+      "vite_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.06110102843315184,
+    "1": 0.045454545454545456,
+    "2": 0.09230769230769231,
+    "3": 0.10483870967741936,
+    "4": 0.0625,
+    "5": 0.08,
+    "6": 0.1871345029239766,
+    "7": 0.13450292397660818,
+    "8": 0.15,
+    "9": 0.18095238095238095,
+    "10": 0.24358974358974358,
+    "11": 0.28888888888888886,
+    "12": 0.3055555555555556,
+    "13": 0.2857142857142857,
+    "14": 0.3333333333333333,
+    "15": 0.3333333333333333,
+    "16": 0.4,
+    "17": 0.5,
+    "18": 0.6666666666666666,
+    "19": 0.5,
+    "20": 0.6666666666666666,
+    "21": 0.6666666666666666,
+    "22": 0.6666666666666666,
+    "23": 0.6666666666666666,
+    "24": 0.6666666666666666,
+    "25": 0.6666666666666666,
+    "26": 0.6666666666666666,
+    "27": 0.6666666666666666,
+    "28": 0.6666666666666666,
+    "29": 0.6666666666666666,
+    "30": 0.6666666666666666,
+    "31": 0.6666666666666666,
+    "32": 0.6666666666666666,
+    "33": 0.6666666666666666,
+    "34": 0.6666666666666666,
+    "35": 0.6666666666666666,
+    "36": 0.6666666666666666,
+    "37": 0.6666666666666666,
+    "38": 0.6666666666666666,
+    "39": 0.6666666666666666,
+    "40": 0.6666666666666666,
+    "41": 0.6666666666666666,
+    "42": 0.6666666666666666,
+    "43": 0.6666666666666666,
+    "44": 1.0,
+    "45": 1.0,
+    "46": 1.0,
+    "47": 1.0,
+    "48": 1.0,
+    "49": 1.0,
+    "50": 1.0,
+    "51": 1.0,
+    "52": 1.0,
+    "53": 1.0,
+    "54": 1.0,
+    "55": 1.0,
+    "56": 1.0,
+    "57": 1.0,
+    "58": 1.0,
+    "59": 1.0,
+    "60": 1.0,
+    "61": 1.0,
+    "62": 1.0,
+    "63": 1.0,
+    "64": 1.0,
+    "65": 1.0,
+    "66": 1.0,
+    "67": 1.0,
+    "68": 1.0,
+    "69": 1.0
+  },
+  "gods": [
+    {
+      "id": "app_models_user_user",
+      "label": "User",
+      "degree": 47
+    },
+    {
+      "id": "app_models_opd_opd",
+      "label": "Opd",
+      "degree": 44
+    },
+    {
+      "id": "tests_feature_opdmanagementtest_opdmanagementtest",
+      "label": "OpdManagementTest",
+      "degree": 20
+    },
+    {
+      "id": "app_services_usermanagementservice_usermanagementservice",
+      "label": "UserManagementService",
+      "degree": 14
+    },
+    {
+      "id": "app_datatables_opddatatable_opddatatable",
+      "label": "OpdDataTable",
+      "degree": 11
+    },
+    {
+      "id": "app_datatables_userdatatable_userdatatable",
+      "label": "UserDataTable",
+      "degree": 11
+    },
+    {
+      "id": "app_http_controllers_admin_opdcontroller_opdcontroller",
+      "label": "OpdController",
+      "degree": 11
+    },
+    {
+      "id": "app_http_controllers_admin_usercontroller_usercontroller",
+      "label": "UserController",
+      "degree": 11
+    },
+    {
+      "id": "app_services_opdmanagementservice_opdmanagementservice",
+      "label": "OpdManagementService",
+      "degree": 11
+    },
+    {
+      "id": "app_repositories_eloquentopdrepository_eloquentopdrepository",
+      "label": "EloquentOpdRepository",
+      "degree": 10
+    }
+  ],
+  "surprises": [
+    {
+      "source": "OpdManagementTest",
+      "target": "User",
+      "source_files": [
+        "tests/Feature/OpdManagementTest.php",
+        "app/Models/User.php"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "create()",
+      "target": "Opd",
+      "source_files": [
+        "app/Repositories/Contracts/OpdRepositoryInterface.php",
+        "app/Models/Opd.php"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities; peripheral node `create()` unexpectedly reaches hub `Opd`"
+    },
+    {
+      "source": "delete()",
+      "target": "Opd",
+      "source_files": [
+        "app/Repositories/Contracts/OpdRepositoryInterface.php",
+        "app/Models/Opd.php"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities; peripheral node `delete()` unexpectedly reaches hub `Opd`"
+    },
+    {
+      "source": "hasUsers()",
+      "target": "Opd",
+      "source_files": [
+        "app/Repositories/Contracts/OpdRepositoryInterface.php",
+        "app/Models/Opd.php"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities; peripheral node `hasUsers()` unexpectedly reaches hub `Opd`"
+    },
+    {
+      "source": "update()",
+      "target": "Opd",
+      "source_files": [
+        "app/Repositories/Contracts/OpdRepositoryInterface.php",
+        "app/Models/Opd.php"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities; peripheral node `update()` unexpectedly reaches hub `Opd`"
+    }
+  ],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}

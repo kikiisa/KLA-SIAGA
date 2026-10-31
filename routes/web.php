@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\EvaluationPeriodController;
 use App\Http\Controllers\Admin\OpdController;
 use App\Http\Controllers\Admin\RolePermissionController;
 use App\Http\Controllers\Admin\UserController;
@@ -23,6 +24,35 @@ Route::middleware('auth')->group(function (): void {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
 });
+
+Route::middleware('auth')
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function (): void {
+        Route::get('periods/data', [EvaluationPeriodController::class, 'data'])
+            ->middleware('permission:period.view')
+            ->name('periods.data');
+        Route::get('periods', [EvaluationPeriodController::class, 'index'])
+            ->middleware('permission:period.view')
+            ->name('periods.index');
+        Route::get('periods/create', [EvaluationPeriodController::class, 'create'])
+            ->middleware('permission:period.create')
+            ->name('periods.create');
+        Route::post('periods', [EvaluationPeriodController::class, 'store'])
+            ->middleware('permission:period.create')
+            ->name('periods.store');
+        Route::get('periods/{period}/edit', [EvaluationPeriodController::class, 'edit'])
+            ->middleware('permission:period.update')
+            ->name('periods.edit');
+        Route::put('periods/{period}', [EvaluationPeriodController::class, 'update'])
+            ->middleware('permission:period.update')
+            ->name('periods.update');
+        Route::delete('periods/{period}', [EvaluationPeriodController::class, 'destroy'])
+            ->middleware('permission:period.delete')
+            ->name('periods.destroy');
+        Route::put('periods/{period}/status', [EvaluationPeriodController::class, 'updateStatus'])
+            ->name('periods.status');
+    });
 
 Route::middleware('auth')
     ->prefix('admin')

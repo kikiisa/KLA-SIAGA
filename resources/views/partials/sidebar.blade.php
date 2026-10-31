@@ -1,7 +1,7 @@
 @php
     $navItems = [
         ['icon' => 'grid', 'label' => 'Dashboard', 'route' => 'dashboard', 'active' => 'dashboard'],
-        ['icon' => 'calendar', 'label' => 'Periode Evaluasi'],
+        ['icon' => 'calendar', 'label' => 'Periode Evaluasi', 'route' => 'admin.periods.index', 'active' => 'admin.periods.*', 'permission' => 'period.view'],
         ['icon' => 'building', 'label' => 'Manajemen OPD', 'route' => 'admin.opds.index', 'active' => 'admin.opds.*', 'permission' => 'opd.view'],
         ['icon' => 'document', 'label' => 'Indikator & Dokumen'],
         ['icon' => 'shield', 'label' => 'Verifikasi', 'badge' => '12'],
